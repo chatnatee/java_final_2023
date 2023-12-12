@@ -2,24 +2,27 @@ package bookstore;
 
 import java.util.Scanner;
 
+// Book class represents a book with various properties
 public class Book {
+    // Static variable to keep track of the number of created Book objects
     private static int numberOfCreatedBooks = 0;
 
+    // Instance variables representing the properties of a book
     private String title;
     private String author;
     private long ISBN;
     private double price;
 
-    // Constructor
+    // Constructor to initialize a Book object with specified values
     public Book(String title, String author, long ISBN, double price) {
         this.title = title;
         this.author = author;
         this.ISBN = ISBN;
         this.price = price;
-        numberOfCreatedBooks++;
+        numberOfCreatedBooks++; // Increment the count of created books
     }
 
-    // Getter methods
+    // Getter methods to access the private instance variables
     public String getTitle() {
         return title;
     }
@@ -36,7 +39,7 @@ public class Book {
         return price;
     }
 
-    // Setter methods
+    // Setter methods to modify the values of the private instance variables
     public void setTitle(String title) {
         this.title = title;
     }
@@ -58,7 +61,7 @@ public class Book {
         return numberOfCreatedBooks;
     }
 
-    // Override equals() method for object comparison
+    // Override equals() method for object comparison based on ISBN and price
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -67,7 +70,7 @@ public class Book {
         return ISBN == otherBook.ISBN && Double.compare(otherBook.price, price) == 0;
     }
 
-    // Override toString() method for displaying Book information
+    // Override toString() method for a string representation of the Book object
     @Override
     public String toString() {
         return "Book{" +
@@ -78,8 +81,8 @@ public class Book {
                 '}';
     }
 
+    // Main method for example usage (instantiates a BookstoreManager and runs it)
     public static void main(String[] args) {
-        // Example usage
         BookstoreManager.runBookstoreManager();
     }
 }
